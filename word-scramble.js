@@ -1,31 +1,11 @@
 // Wedding Word Scramble Game Logic
 
 const words = [
-    { word: "saptapadi", hint: "Seven sacred steps around the fire" },
-    { word: "kanyadaan", hint: "Giving away of the bride by her father" },
-    { word: "varmala", hint: "Exchange of garlands between bride and groom" },
-    { word: "haldi", hint: "Turmeric ceremony before the wedding" },
-    { word: "mehndi", hint: "Henna art applied to bride's hands and feet" },
-    { word: "sangeet", hint: "Pre-wedding music and dance celebration" },
-    { word: "baraat", hint: "Groom's wedding procession" },
-    { word: "mandap", hint: "Sacred canopy where wedding ceremony takes place" },
-    { word: "bidaai", hint: "Bride's emotional farewell from her family" },
-    { word: "sindoor", hint: "Red vermillion powder in bride's hair parting" },
-    { word: "mangalsutra", hint: "Sacred necklace tied by groom" },
-    { word: "gathbandhan", hint: "Tying of the bride's and groom's garments" },
-    { word: "havan", hint: "Sacred fire ceremony" },
-    { word: "pheras", hint: "Circling the sacred fire" },
-    { word: "ashirwad", hint: "Blessings from elders" },
-    { word: "madhuparka", hint: "Welcoming drink of honey and yogurt" },
-    { word: "muhurat", hint: "Auspicious time for the ceremony" },
-    { word: "vidaai", hint: "Bride's departure from parental home" },
-    { word: "jaimala", hint: "Another name for garland exchange" },
-    { word: "grihapravesh", hint: "Bride's first entry into new home" },
-    { word: "tilak", hint: "Ceremonial mark on the forehead" },
-    { word: "shagun", hint: "Auspicious gifts and blessings" },
-    { word: "chooda", hint: "Bridal bangles worn by Punjabi brides" },
-    { word: "kalash", hint: "Sacred pot used in ceremonies" },
-    { word: "aarti", hint: "Ritual of waving lighted lamps" }
+    { word: "kanyadaan", hint: "The gift of trust - families offer blessings as couple joins hands" },
+    { word: "baraat", hint: "Celebratory arrival procession with music and dance" },
+    { word: "mangalsutra", hint: "Sacred necklace symbolizing love and protection" },
+    { word: "pheras", hint: "Walking around the sacred fire, each round representing a vow" },
+    { word: "kashiyatra", hint: "Playful renunciation where groom is persuaded to embrace married life" }
 ];
 
 let currentWord = {};
@@ -95,13 +75,49 @@ function loadNewWord() {
     
     // Display scrambled word
     scrambledWordEl.textContent = scrambleWord(currentWord.word).toUpperCase();
-    hintEl.textContent = `💡 Hint: ${currentWord.hint}`;
+    hintEl.textContent = `💡 Hint (phoneticized English spelling): ${currentWord.hint}`;
     
     // Clear input and feedback
     guessInput.value = '';
     feedbackEl.textContent = '';
     feedbackEl.className = 'feedback';
     guessInput.focus();
+}
+
+// Calculate Levenshtein distance for spelling leniency
+function getLevenshteinDistance(a, b) {
+    const matrix = [];
+    
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+    
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+    
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
+                );
+            }
+        }
+    }
+    
+    return matrix[b.length][a.length];
+}
+
+// Check if spelling is close enough (allow 1-2 character differences based on word length)
+function isSpellingCloseEnough(userGuess, correctWord) {
+    const distance = getLevenshteinDistance(userGuess, correctWord);
+    const threshold = correctWord.length <= 6 ? 1 : 2; // Allow 1 mistake for short words, 2 for longer
+    return distance <= threshold;
 }
 
 // Check answer
@@ -119,6 +135,13 @@ function checkAnswer() {
         usedWords.push(currentWord.word);
         updateDisplay();
         showFeedback("✅ Correct! Well done!", "success");
+        setTimeout(loadNewWord, 1500);
+    } else if (isSpellingCloseEnough(userGuess, currentWord.word)) {
+        score += 10;
+        level++;
+        usedWords.push(currentWord.word);
+        updateDisplay();
+        showFeedback(`✅ Close enough! The exact spelling is: ${currentWord.word.toUpperCase()}`, "success");
         setTimeout(loadNewWord, 1500);
     } else {
         showFeedback("❌ Incorrect! Try again.", "error");
