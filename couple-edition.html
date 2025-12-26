@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who's Most Likely To? - Indian Wedding Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">← Back to Games</a>
+            <h1>💕 Who's Most Likely To?</h1>
+            <p>Couple Edition</p>
+        </header>
+        
+        <main class="game-area">
+            <div class="game-info">
+                <div class="info-item">
+                    <span id="partner-a-score" class="partner-score">0</span>
+                    <span class="label" id="partner-a-label">Nikhil</span>
+                </div>
+                <div class="info-item">
+                    <span id="partner-b-score" class="partner-score">0</span>
+                    <span class="label" id="partner-b-label">Ishanee</span>
+                </div>
+            </div>
+            
+            <div class="game-content">
+                <div class="question-card" id="question-card">
+                    <div class="question-number">Question <span id="question-num">1</span> of <span id="total-questions">15</span></div>
+                    <div class="question-text" id="question-text"></div>
+                    
+                    <div class="choice-buttons">
+                        <button class="choice-button partner-a-choice" id="partner-a-btn">
+                            <span class="choice-label" id="partner-a-choice-label">Nikhil</span>
+                        </button>
+                        <button class="choice-button partner-b-choice" id="partner-b-btn">
+                            <span class="choice-label" id="partner-b-choice-label">Ishanee</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="results-screen" class="results-screen" style="display: none;">
+                    <h2>🎉 Game Complete!</h2>
+                    <div class="final-scores">
+                        <div class="final-score-item">
+                            <span class="final-name" id="final-partner-a-name">Nikhil</span>
+                            <span class="final-score" id="final-partner-a-score">0</span>
+                            <span class="score-label">votes</span>
+                        </div>
+                        <div class="final-score-item">
+                            <span class="final-name" id="final-partner-b-name">Ishanee</span>
+                            <span class="final-score" id="final-partner-b-score">0</span>
+                            <span class="score-label">votes</span>
+                        </div>
+                    </div>
+                    
+                    <div id="poll-counter" class="poll-counter">
+                        <!-- Poll results will be inserted here by JavaScript -->
+                    </div>
+                    
+                    <button id="restart-btn" class="game-button">Play Again</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="couple-edition.js"></script>
+</body>
+</html>
