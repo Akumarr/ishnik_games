@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaadi Mad Libs - Indian Wedding Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">← Back to Games</a>
+            <h1>📝 Shaadi Mad Libs</h1>
+            <p>Our Adventure Story</p>
+        </header>
+        
+        <main class="game-area">
+            <div class="game-content">
+                <div id="input-form" class="mad-libs-form">
+                    <h3>Fill in the blanks to create your story!</h3>
+                    
+                    <div class="input-group">
+                        <label for="adjective">Adjective:</label>
+                        <input type="text" id="adjective" placeholder="e.g., amazing, silly, brave">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="pluralNoun">Plural Noun:</label>
+                        <input type="text" id="pluralNoun" placeholder="e.g., mountains, puppies, stars">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="liquid">Liquid:</label>
+                        <input type="text" id="liquid" placeholder="e.g., coffee, tea, hot chocolate">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="noun">Noun:</label>
+                        <input type="text" id="noun" placeholder="e.g., penguin, tornado, superhero">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="activity">Activity:</label>
+                        <input type="text" id="activity" placeholder="e.g., rock climbing, karaoke, camping">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="food">Type of Food:</label>
+                        <input type="text" id="food" placeholder="e.g., pizza, ice cream, samosas">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="verb">Verb ending in -ing:</label>
+                        <input type="text" id="verb" placeholder="e.g., dancing, laughing, singing">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="bodyPart">Body Part:</label>
+                        <input type="text" id="bodyPart" placeholder="e.g., knee, elbow, toe">
+                    </div>
+                    
+                    <button id="generate-btn" class="game-button">Generate Story! 🎉</button>
+                </div>
+                
+                <div id="story-display" class="story-display" style="display: none;">
+                    <h3>🧊 Our Adventure Story 🧊</h3>
+                    <div id="story-text" class="story-text"></div>
+                    <button id="reset-btn" class="game-button">Create Another Story</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="mad-libs.js"></script>
+</body>
+</html>
