@@ -1,0 +1,611 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #f67280 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Main Content */
+main {
+    padding: 40px;
+}
+
+/* Home Page Game Selection */
+.game-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.game-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.game-card h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.game-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.play-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.play-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+}
+
+/* Game Area */
+.game-area {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.info-item {
+    text-align: center;
+}
+
+.label {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.value {
+    display: block;
+    color: #ff6b9d;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.game-content {
+    text-align: center;
+}
+
+/* Word Scramble Specific */
+.scrambled-word {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff6b9d;
+    letter-spacing: 8px;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.hint {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+}
+
+.input-area input:focus {
+    outline: none;
+    border-color: #ff6b9d;
+}
+
+/* Emoji Guess Specific */
+.emoji-display {
+    font-size: 8rem;
+    margin: 30px 0;
+    animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.question {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.option-button {
+    padding: 15px;
+    font-size: 1.1rem;
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.option-button:hover:not(:disabled) {
+    background: #ff6b9d;
+    color: white;
+    border-color: #ff6b9d;
+    transform: scale(1.05);
+}
+
+.option-button:disabled {
+    cursor: not-allowed;
+}
+
+.option-button.correct {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.option-button.incorrect {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+/* Buttons */
+.game-button {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+}
+
+.secondary-button {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.secondary-button:hover {
+    background: #5a6268;
+}
+
+.game-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Feedback */
+.feedback {
+    min-height: 30px;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.6;
+    white-space: pre-line;
+    text-align: left;
+}
+
+.feedback.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.feedback.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.feedback.info {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Footer */
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .game-selection {
+        grid-template-columns: 1fr;
+    }
+    
+    .scrambled-word {
+        font-size: 2rem;
+        letter-spacing: 5px;
+    }
+    
+    .emoji-display {
+        font-size: 5rem;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-area {
+        flex-direction: column;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+    }
+    
+    main {
+        padding: 20px;
+    }
+}
+
+/* Couple Edition Game Styles */
+.couple-names {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.name-input-group {
+    margin-bottom: 15px;
+}
+
+.name-input-group label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.name-input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.name-input-group input:focus {
+    outline: none;
+    border-color: #ff6b9d;
+}
+
+.partner-score {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6b9d;
+}
+
+.question-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.question-number {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.question-text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.choice-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.choice-button {
+    padding: 25px 20px;
+    font-size: 1.2rem;
+    background: white;
+    border: 3px solid #ff6b9d;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #ff6b9d;
+    font-weight: bold;
+}
+
+.choice-button:hover:not(:disabled) {
+    background: #ff6b9d;
+    color: white;
+    transform: scale(1.05);
+}
+
+.choice-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.choice-button.selected {
+    background: #ff6b9d;
+    color: white;
+    animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.choice-label {
+    display: block;
+}
+
+.results-screen {
+    text-align: center;
+    padding: 30px;
+}
+
+.results-screen h2 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.final-scores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.final-score-item {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.final-name {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.final-score {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff6b9d;
+    margin-bottom: 5px;
+}
+
+.score-label {
+    display: block;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Poll Counter Styles */
+.poll-counter {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.poll-counter h3 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.poll-list {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.poll-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #ff6b9d;
+}
+
+.poll-item:last-child {
+    margin-bottom: 0;
+}
+
+.poll-question {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+.poll-answer {
+    color: #ff6b9d;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .choice-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .final-scores {
+        grid-template-columns: 1fr;
+    }
+    
+    .question-text {
+        font-size: 1.2rem;
+    }
+    
+    .poll-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .poll-answer {
+        margin-left: 0;
+    }
+}
