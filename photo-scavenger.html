@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Scavenger Hunt - Indian Wedding Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">← Back to Games</a>
+            <h1>📸 Photo Scavenger Hunt</h1>
+            <p>Capture These Special Moments!</p>
+        </header>
+        
+        <main class="game-area">
+            <div class="scavenger-progress">
+                <div class="progress-text">
+                    <span id="completed-count">0</span> of <span id="total-count">7</span> moments captured
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <div class="game-content">
+                <div class="scavenger-list" id="scavenger-list">
+                    <!-- Items will be inserted here by JavaScript -->
+                </div>
+                
+                <div class="scavenger-actions">
+                    <button id="reset-btn" class="secondary-button">Reset All</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="photo-scavenger.js"></script>
+</body>
+</html>
