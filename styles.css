@@ -90,6 +90,8 @@ main {
     padding: 30px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-card:hover {
@@ -112,6 +114,7 @@ main {
     color: #666;
     margin-bottom: 20px;
     line-height: 1.6;
+    flex-grow: 1;
 }
 
 .play-button {
@@ -607,5 +610,99 @@ footer {
     
     .poll-answer {
         margin-left: 0;
+    }
+}
+
+/* Mad Libs Styles */
+.mad-libs-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mad-libs-form h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #ff6b9d;
+    background: #fff;
+}
+
+.input-group input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.story-display {
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.story-display h3 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.story-text {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.story-text p {
+    margin-bottom: 20px;
+}
+
+.story-text p:last-child {
+    margin-bottom: 0;
+}
+
+.story-text strong {
+    color: #ff6b9d;
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
+@media (max-width: 768px) {
+    .story-text {
+        padding: 20px;
+        font-size: 1rem;
+    }
+    
+    .mad-libs-form h3,
+    .story-display h3 {
+        font-size: 1.3rem;
     }
 }
